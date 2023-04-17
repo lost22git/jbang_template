@@ -13,6 +13,14 @@ jobs:
         key: $-jbang-$
         restore-keys: |
             $-jbang-
+    - name: Setup GraalVM action
+      uses: ayltai/setup-graalvm@v1
+      with:
+        # The JDK version to be installed with GraalVM. E.g. 8, 11. See https://github.com/graalvm/graalvm-ce-builds/releases
+        java-version: 19
+        # The version of GraalVM to make available on PATH. E.g. 20.1.0, 19.3.2. See https://github.com/graalvm/graalvm-ce-builds/releases
+        graalvm-version: 22.3.1
+        native-image: true
     - name: jbang
       uses: jbangdev/jbang-action@v0.106.1
       with:
