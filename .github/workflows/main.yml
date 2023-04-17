@@ -20,6 +20,10 @@ jobs:
         java-version: '19'
         components: 'native-image'
         github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: print JAVA_HOME
+      run: echo $JAVA_HOME
+    - name: print GRAALVM_HOME
+      run: ls $GRAALVM_HOME
     - name: jbang
       uses: jbangdev/jbang-action@v0.106.1
       with:
