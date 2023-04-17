@@ -23,7 +23,7 @@ jobs:
     - name: print JAVA_HOME
       run: echo $JAVA_HOME
     - name: print GRAALVM_HOME
-      run: ls $GRAALVM_HOME
+      run: ls $GRAALVM_HOME/bin
     - name: jbang
       uses: jbangdev/jbang-action@v0.106.1
       with:
@@ -31,4 +31,5 @@ jobs:
         scriptargs: ""
       env:
         JBANG_REPO: /root/.jbang/repository
-        GITHUB_TOKEN: $
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        JAVA_HOME: ${{env.JAVA_HOME}}
