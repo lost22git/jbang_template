@@ -16,7 +16,7 @@ jobs:
     - name: jbang
       uses: jbangdev/jbang-action@v0.106.1
       with:
-        script: main.java
+        script: export native main.java
         scriptargs: ""
       env:
         JBANG_REPO: /root/.jbang/repository
