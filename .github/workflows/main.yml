@@ -29,3 +29,5 @@ jobs:
       env:
         JBANG_REPO: /root/.jbang/repository
         GITHUB_TOKEN: $
+        JAVA_HOME: /opt/hostedtoolcache/GraalVM/java19-linux-amd64-22.3.1/x64
+        GRAALVM_HOME: /opt/hostedtoolcache/GraalVM/java19-linux-amd64-22.3.1/x64
