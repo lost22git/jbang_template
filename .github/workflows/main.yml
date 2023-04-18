@@ -21,13 +21,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: print JAVA_HOME
       run: echo $JAVA_HOME
-    - name: print GRAALVM_HOME
-      run: ls $GRAALVM_HOME/bin
-    - name: jbang
-      uses: jbangdev/jbang-action@v0.106.1
-      with:
-        script: --verbose export native main.java
-        scriptargs: ""
-      env:
-        JBANG_REPO: /root/.jbang/repository
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: install jbang
+      run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+    - name: run app
+      run: jbang --verbose run --native main.java
