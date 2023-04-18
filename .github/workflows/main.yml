@@ -36,7 +36,11 @@ jobs:
           args: install jbang
         
       - name: Run app
+        if: matrix.os ！= 'windows-latest'
         run: jbang --verbose export native main.java
+      - name: Run app
+        if: matrix.os == 'windows-latest'
+        run: jbang --verbose export native main.java && jbang --verbose export native main.java
         
       - name: Upload binary
         if: matrix.os != 'windows-latest'
