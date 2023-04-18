@@ -24,4 +24,4 @@ jobs:
     - name: install jbang
       run: curl -Ls https://sh.jbang.dev | bash -s - app setup
     - name: run app
-      run: jbang --verbose run --native main.java
+      run: bash -c "jbang --verbose run --native main.java"
