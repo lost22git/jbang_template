@@ -22,6 +22,7 @@ jobs:
     - name: print JAVA_HOME
       run: echo $JAVA_HOME
     - name: install jbang
-      run: curl -Ls https://sh.jbang.dev | bash -s - app setup
+      run: |
+        curl -s "https://get.sdkman.io" | bash && source ~/.bash_profile && sdk install jbang
     - name: run app
-      run: bash -c "jbang --verbose run --native main.java"
+      run: jbang --verbose run --native main.java
