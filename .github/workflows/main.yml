@@ -21,8 +21,8 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: print JAVA_HOME
       run: echo $JAVA_HOME
+    - uses: sfesenko/setup-sdkman@v0
     - name: install jbang
-      run: |
-        curl -s "https://get.sdkman.io" | bash && source ~/.bash_profile && sdk install jbang
+      run: sdk install jbang
     - name: run app
       run: jbang --verbose run --native main.java
