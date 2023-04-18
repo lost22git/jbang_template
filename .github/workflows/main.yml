@@ -21,7 +21,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: print JAVA_HOME
       run: echo $JAVA_HOME
-    - uses: sdkman/sdkman-action@v1
+    - uses: sdkman/sdkman-action@main
       id: sdkman
       with:
         candidate: jbang
