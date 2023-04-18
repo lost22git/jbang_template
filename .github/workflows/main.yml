@@ -29,10 +29,11 @@ jobs:
         with:
           candidate: jbang
       
-      - name: Install jbang by pwsh
+      - name: Install chocolatey and jbang
         if: matrix.os == 'windows-latest'
-        run: |
-          iex "& { $(iwr -useb https://ps.jbang.dev) } app setup"
+        uses: crazy-max/ghaction-chocolatey@v2.1.0
+        with:
+          args: install jbang
         
       - name: Run app
         run: jbang --verbose export native main.java
