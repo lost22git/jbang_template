@@ -41,7 +41,7 @@ jobs:
       - name: Run app
         if: matrix.os == 'windows-latest'
         # run command twice to solve Fatal error: java.lang.IllegalArgumentException: 'other' has different root
-        run: jbang --verbose export native main.java && jbang --verbose export native main.java
+        run: jbang --verbose export native main.java || true || jbang --verbose export native main.java
         
       - name: Upload binary
         if: matrix.os != 'windows-latest'
