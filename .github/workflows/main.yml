@@ -23,14 +23,14 @@ jobs:
         run: echo $JAVA_HOME
     
       - name: Install sdkman and jbang
-        if: ${{ matrix.os != 'windows-latest’ }}
+        if: ${{ matrix.os != windows-latest }}
         uses: sdkman/sdkman-action@main
         id: sdkman
         with:
           candidate: jbang
       
       - name: Install jbang by pwsh
-        if: ${{ matrix.os == 'windows-latest’ }}
+        if: ${{ matrix.os == windows-latest }}
         run: |
           iex "& { $(iwr -useb https://ps.jbang.dev) } app setup"
         
@@ -38,14 +38,14 @@ jobs:
         run: jbang --verbose export native main.java
         
       - name: Upload binary
-        if: ${{ matrix.os != 'windows-latest’ }}
+        if: ${{ matrix.os != windows-latest }}
         uses: actions/upload-artifact@v2
         with:
           name: main-${{ matrix.os }}
           path: main
           
       - name: Upload binary
-        if: ${{ matrix.os == 'windows-latest’ }}
+        if: ${{ matrix.os == windows-latest }}
         uses: actions/upload-artifact@v2
         with:
           name: main-${{ matrix.os }}.exe
